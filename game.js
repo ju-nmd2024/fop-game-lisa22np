@@ -6,7 +6,7 @@ let cowX = 400;
 let cowY = 10;
 let cowS = 0.5;
 
-let stateOfGame = 0;
+let stateOfGame = 1;
 
 function cow(x, y, s) {
   noStroke();
@@ -202,28 +202,35 @@ function startScreen() {
   fill(43, 189, 10);
   strokeWeight(10);
   stroke(21, 92, 4);
-  rect(300, 380, 200, 100);
+  rect(300, 420, 200, 100);
   pop();
 
   push();
   fill(21, 92, 4);
   textSize(50);
-  text("START", 320, 445);
+  text("START", 320, 490);
   pop();
 
+  fill(115, 63, 32);
+  rect(10, 10, 780, 150);
+
+  fill(166, 111, 78);
+  rect(20, 20, 760, 130);
+
   push();
-  const helpText1 = "We need your help! This cow we abducted,";
-  const helpText2 = "Betsy, is proving very hard to return. Could";
-  const helpText3 = "you help us land her safetly back on earth?";
-  const helpText4 = "Use your spacebar to slow down her decent.";
-  const helpText5 = "We'd be ever so gratefull!";
-  fill(196, 250, 187);
-  textSize(15);
-  text(helpText1, 50, 100);
-  text(helpText2, 50, 120);
-  text(helpText3, 50, 140);
-  text(helpText4, 50, 160);
-  text(helpText5, 50, 180);
+  let textLine1 =
+    "Hey! We need your help! This cow we abducted, Betsy, she's proving a real handful. No one told us";
+  let textLine2 =
+    "cows are so loud. We need to bream her back to earth! Use your spacebar to slow down her decent";
+  let textLine3 = "and get her back on the ground safe and sound.";
+  fill(255, 255, 255);
+  textSize(18);
+  text("Mysterious Voice:", 70, 50);
+  textSize(16);
+  text(textLine1, 40, 80);
+  text(textLine2, 40, 100);
+  text(textLine3, 40, 120);
+
   pop();
 }
 
@@ -235,13 +242,67 @@ function gameScreen() {
 }
 
 function endScreenWin() {
+  fill(115, 63, 32);
+  rect(10, 10, 780, 150);
+  fill(166, 111, 78);
+  rect(20, 20, 760, 130);
   fill(255, 255, 255);
-  text("You win!", 200, 200);
+  textSize(18);
+  text("Mysterious Voice:", 70, 50);
+
+  textSize(16);
+  text(
+    "Hooray! You did it! We are so gratefull we might even spare you when we come back to invade your",
+    40,
+    80
+  );
+  text(
+    "planet. But lets not get ahead of ourselves, we still have many other things to abduct first. But",
+    40,
+    100
+  );
+  text("no more cows.", 40, 120);
+
+  push();
+  fill(43, 189, 10);
+  strokeWeight(10);
+  stroke(21, 92, 4);
+  rect(265, 420, 270, 100);
+  pop();
+
+  push();
+  fill(21, 92, 4);
+  textSize(50);
+  text("RESTART", 285, 490);
+  pop();
 }
 
 function endScreenLose() {
+  fill(115, 63, 32);
+  rect(10, 10, 780, 150);
+  fill(166, 111, 78);
+  rect(20, 20, 760, 130);
   fill(255, 255, 255);
-  text("You fail!", 200, 200);
+  textSize(18);
+  text("Mysterious Voice:", 70, 50);
+
+  textSize(16);
+  text("...", 40, 80);
+  text("Betsy?", 40, 100);
+  text("Oh... Oh no, Betsy.", 40, 120);
+
+  push();
+  fill(43, 189, 10);
+  strokeWeight(10);
+  stroke(21, 92, 4);
+  rect(265, 420, 270, 100);
+  pop();
+
+  push();
+  fill(21, 92, 4);
+  textSize(50);
+  text("RESTART", 285, 490);
+  pop();
 }
 
 function draw() {
@@ -260,8 +321,14 @@ function draw() {
   }
 }
 
-//function mouseClicked(){
-  //if (stateOfGame === 0){
-    //stateOfGame = 1;
- // }
-//}
+function mouseClicked() {
+  if (stateOfGame === 0) {
+    stateOfGame = 1;
+  } else if (stateOfGame === 1) {
+    stateOfGame = 2;
+  } else if (stateOfGame === 2) {
+    stateOfGame = 3;
+  } else if (stateOfGame === 3) {
+    stateOfGame = 0;
+  }
+}
