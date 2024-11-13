@@ -157,11 +157,25 @@ let cowS = 0.5;
 
 function startScreen() {
   background(10, 10, 10);
+
   push();
   fill(43, 189, 10);
   strokeWeight(10);
   stroke(21, 92, 4);
-  rect(200, 100, 400, 200);
+  rect(250, 400, 200, 100);
+  pop();
+
+  push();
+  fill(21, 92, 4);
+  textSize(50);
+  text("START", 269, 465);
+  pop();
+
+  push();
+  let helpText = "help";
+  fill(255, 255, 255);
+  textSize(15);
+  text(helpText, 250, 100);
   pop();
 }
 
@@ -169,8 +183,8 @@ function gameScreen() {
   background(10, 10, 10);
 
   cow(cowX, cowY, cowS);
-  if (cowY < 300) {
-    cowY = cowY + 10;
+  if (cowY < 500) {
+    cowY = cowY * 1.04;
   }
 }
 
