@@ -6,7 +6,10 @@ let cowX = 400;
 let cowY = 10;
 let cowS = 0.5;
 
-let stateOfGame = 1;
+let gravity = 0.1;
+let speed = 0.5;
+
+let stateOfGame = 0;
 
 function cow(x, y, s) {
   noStroke();
@@ -236,8 +239,18 @@ function startScreen() {
 
 function gameScreen() {
   cow(cowX, cowY, cowS);
-  if (cowY < 430) {
-    cowY = cowY * 1.08;
+  if (keyIsDown(32)) {
+    gravity = -0.3;
+  } else {
+    gravity = 0.1;
+  }
+  speed = speed + gravity;
+  cowY = cowY + speed;
+
+  if (cowY > 450 && speed < 4) {
+    stateOfGame = 2;
+  } else if (cowY > 450 && speed >= 4) {
+    stateOfGame = 3;
   }
 }
 
@@ -322,13 +335,37 @@ function draw() {
 }
 
 function mouseClicked() {
-  if (stateOfGame === 0) {
+  if (
+    stateOfGame === 0 &&
+    mouseX > 295 &&
+    mouseX < 505 &&
+    mouseY > 415 &&
+    mouseY < 525
+  ) {
     stateOfGame = 1;
-  } else if (stateOfGame === 1) {
-    stateOfGame = 2;
-  } else if (stateOfGame === 2) {
-    stateOfGame = 3;
-  } else if (stateOfGame === 3) {
-    stateOfGame = 0;
+    gravity = 0.1;
+    speed = 0.5;
+  } else if (
+    stateOfGame === 2 &&
+    mouseX > 260 &&
+    mouseX < 550 &&
+    mouseY > 415 &&
+    mouseY < 525
+  ) {
+    stateOfGame = 1;
+    cowY = 10;
+    gravity = 0.1;
+    speed = 0.5;
+  } else if (
+    stateOfGame === 3 &&
+    mouseX > 260 &&
+    mouseX < 550 &&
+    mouseY > 415 &&
+    mouseY < 525
+  ) {
+    stateOfGame = 1;
+    cowY = 10;
+    gravity = 0.1;
+    speed = 0.5;
   }
 }
