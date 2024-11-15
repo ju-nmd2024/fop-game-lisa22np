@@ -9,7 +9,7 @@ let cowS = 0.5;
 let gravity = 0.1;
 let speed = 0.5;
 
-let stateOfGame = 0;
+let stateOfGame = 2;
 
 function cow(x, y, s) {
   noStroke();
@@ -224,7 +224,7 @@ function startScreen() {
   let textLine1 =
     "Hey! We need your help! This cow we abducted, Betsy, she's proving a real handful. No one told us";
   let textLine2 =
-    "cows are so loud. We need to bream her back to earth! Use your spacebar to slow down her decent";
+    "cows are so loud. We need to beam her back to earth! Use your spacebar to slow down her decent";
   let textLine3 = "and get her back on the ground safe and sound.";
   fill(255, 255, 255);
   textSize(18);
@@ -270,11 +270,11 @@ function endScreenWin() {
     80
   );
   text(
-    "planet. But lets not get ahead of ourselves, we still have many other things to abduct first. But",
+    "planet. But lets not get ahead of ourselves, we still have many other things to abduct first... But no",
     40,
     100
   );
-  text("no more cows.", 40, 120);
+  text("more cows!", 40, 120);
 
   push();
   fill(43, 189, 10);
