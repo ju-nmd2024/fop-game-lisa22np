@@ -9,7 +9,7 @@ let cowS = 0.5;
 let gravity = 0.1;
 let speed = 0.5;
 
-let stateOfGame = 2;
+let stateOfGame = 0;
 
 function cow(x, y, s) {
   noStroke();
@@ -270,7 +270,7 @@ function endScreenWin() {
     80
   );
   text(
-    "planet. But lets not get ahead of ourselves, we still have many other things to abduct first... But no",
+    "planet. But let's not get ahead of ourselves, we still have many more things to abduct first... But no",
     40,
     100
   );
